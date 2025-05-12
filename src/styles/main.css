@@ -1,0 +1,293 @@
+/* File: main.css | Student: Marianna McCue | StudentID: 301481506 | Date: May 2025 */
+
+/* Body Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Header Styles */
+.header-container {
+  background-color: #333;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.header-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.site-title {
+  font-size: 2em;
+  margin: 0;
+}
+
+.portfolio-subtitle {
+  font-size: 1.2em;
+  margin-top: 5px;
+  font-weight: bold;
+  color:#ff8521;
+}
+
+.site-title {
+  margin: 10px;
+  font-size: 30px;
+  color: #ff00bb;
+}
+/* Navigation Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ff00bb;
+}
+/* content styles */
+
+.content {
+  padding: 20px;
+}
+
+
+h2 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+/* Home Section */
+.home {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #cacaca;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: #555;
+  color: #ff8521;
+}
+
+/* About Section */
+
+.about {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Profile Section */
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #333;
+  margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.contact-info-box {
+  flex: 1 1 300px;
+  background-color: #cacaca;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 350px;
+}
+
+.contact-info-box h2 {
+  margin-top: 0;
+}
+
+.contact-form-box {
+  flex: 1 1 350px;
+  background-color: #cacaca;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.contact-header {
+  color: #ff00bb;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* services section */
+
+.services {
+  display: flex;
+  flex-wrap: nowrap; 
+  gap: 20px; 
+  justify-content: center; 
+  padding: 20px;
+}
+
+.services-section {
+  text-align: center; 
+  padding: 20px;
+}
+
+
+
+.service {
+  background-color: #f9f9f9; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 250px; 
+  text-align: center; 
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.services-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center; 
+  flex-wrap: nowrap; 
+  margin-top: 20px;
+}
+
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+
+.service-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+/* Projects Section */
+
+.projects-section {
+  padding: 20px;
+  text-align: center;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  margin-top: 20px;
+  gap: 30px;
+}
+
+
+.project-box {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  width: 280px; 
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.project-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
