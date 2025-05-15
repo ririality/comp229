@@ -39,7 +39,7 @@ export default function Contact() {
         <form onSubmit={handleSubmit} className="contact-form">
           {/* Name input */}
           <div className="form-group">
-            <label>Name</label>
+            <label>Full Name</label>
             <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} required />
           </div>
           
