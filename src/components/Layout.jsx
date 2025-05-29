@@ -1,7 +1,7 @@
 // File: Layout.jsx | Student: Marianna McCue | StudentID: 301481506 | Date: May 2025
 import { Link } from "react-router-dom";
 import '../styles/main.css';
-import Logo from '../assets/MMlogo.png';
+import Logo from '../assets/mmlogo.png';
 
 export default function Layout() {
   // Header container for the layout
