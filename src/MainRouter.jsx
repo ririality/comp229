@@ -6,6 +6,8 @@ import About from "./components/About"
 import Contact from "./components/Contact"
 import Services from "./components/Services"
 import Home from "./components/Home"
+import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
 
 
 const MainRouter = () => {
@@ -18,6 +20,8 @@ const MainRouter = () => {
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/Services" element={<Services />} />
                 <Route path="/projects" element={<Projects />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin" element={<SignIn />} />
             </Routes>
         </div>
     )
