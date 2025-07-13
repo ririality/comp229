@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import authRoutes from './routes/auth.js';
 
 const app = express();
 const PORT = 3000;
@@ -8,7 +9,9 @@ const mongoURI = 'mongodb+srv://mariannamccue:School2025@cluster0.1xgw2z3.mongod
 import contactsRoutes from './routes/contactsRoutes.js';
 import usersRoutes from './routes/usersRoutes.js';
 
-app.use(express.json()); // parse JSON bodies
+app.use('/auth', authRoutes);
+
+app.use(express.json()); 
 
 app.get('/', (req, res) => {
   res.json({ message: "Welcome to My Portfolio application" });
