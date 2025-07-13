@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 app.use('/api/contacts', contactsRoutes);
 app.use('/api/users', usersRoutes);
 
-// Connect to MongoDB then start server
+// Connect to MongoDB 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
