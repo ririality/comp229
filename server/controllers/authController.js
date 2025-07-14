@@ -1,30 +1,49 @@
-import User from '../models/Users.js';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import User from '../models/Users.js'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import config from '../config.js'
 
-// Sign Up
+// Sign up new user
 export const signUp = async (req, res) => {
-  const { username, password, role } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
+  console.log('req.body:', req.body);
+  const { name, email, password } = req.body;
 
-  try {
-    const newUser = new User({ username, password: hashedPassword, role });
-    await newUser.save();
-    res.status(201).json({ message: 'User registered' });
-  } catch (error) {
-    res.status(400).json({ error: 'Error registering user', details: error });
+  // Check if email already exists
+  const existingUser = await User.findOne({ email })
+  if (existingUser) {
+    return res.json({ error: 'Email already exists' })
   }
-};
 
-// Sign In
+  // Hash (encrypt) the password before saving
+  const hashedPassword = await bcrypt.hash(password, 10)
+
+  // Create new user object
+  const newUser = new User({ name, email, password: hashedPassword, role: 'user' }) // default role 'user'
+  await newUser.save()
+
+  res.json({ message: 'User registered successfully' })
+}
+
+// Sign in existing user
 export const signIn = async (req, res) => {
-  const { username, password } = req.body;
-  const user = await User.findOne({ username });
+  const { email, password } = req.body
 
-  if (!user || !await bcrypt.compare(password, user.password)) {
-    return res.status(401).json({ error: 'Invalid credentials' });
+  // Find the user with that email
+  const user = await User.findOne({ email })
+
+  if (!user) {
+    return res.json({ error: 'User not found' })
   }
 
-  const token = jwt.sign({ userId: user._id, role: user.role }, 'School2025$', { expiresIn: '1h' });
-  res.json({ token, role: user.role });
-};
+  // Check if password matches
+  const isMatch = await bcrypt.compare(password, user.password)
+  if (!isMatch) {
+    return res.json({ error: 'Invalid password' })
+  }
+
+  // Generate a JWT token for this user
+  const token = jwt.sign({ _id: user._id, role: user.role }, config.jwtSecret, { expiresIn: '1h' })
+
+  res.json({ token, role: user.role, name: user.name }) // send token, role, name back to frontend
+}
+

@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/auth': 'http://localhost:3000'
-    }
+    },
+    historyApiFallback: true
   }
 })

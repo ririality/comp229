@@ -8,8 +8,13 @@ export const create = async (user) => {
       },
       body: JSON.stringify(user),
     });
-    return await response.json();
+
+    const result = await response.json();
+    console.log('Signup result:', result);
+    return result;
+
   } catch (err) {
-    console.log(err);
+    console.error('Signup failed:', err);
+    return { error: 'Network error' };
   }
-}
+};

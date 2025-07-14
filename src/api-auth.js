@@ -8,8 +8,13 @@ export const signin = async (user) => {
       },
       body: JSON.stringify(user),
     });
-    return await response.json();
+
+    const result = await response.json();
+    console.log('Signin result:', result);
+    return result;
+
   } catch (err) {
-    console.log(err);
+    console.error('Signin failed:', err);
+    return { error: 'Network error' };
   }
-}
+};

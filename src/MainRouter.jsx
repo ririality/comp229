@@ -6,8 +6,9 @@ import About from "./components/About"
 import Contact from "./components/Contact"
 import Services from "./components/Services"
 import Home from "./components/Home"
-import SignUp from './components/Home'
-import SignIn from './components/Home'
+import SignUp from './components/SignUp'
+import SignIn from './components/SignIn'
+import Education from './components/Education';
 
 
 export default function MainRouter() {
@@ -22,6 +23,7 @@ export default function MainRouter() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/education" element={<Education />} />
       </Routes>
     </>
   );
