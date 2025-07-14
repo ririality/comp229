@@ -17,11 +17,41 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form Data:', formData)
-    navigate('/')
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const token = JSON.parse(sessionStorage.getItem('jwt'))?.token;
+
+  try {
+    const response = await fetch('http://localhost:3000/api/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const result = await response.json();
+    if (result.error) {
+      alert('Error: ' + result.error);
+    } else {
+      alert('Message sent!');
+      setFormData({
+        firstName: '',
+        lastName: '',
+        contactNumber: '',
+        email: '',
+        message: ''
+      });
+      navigate('/');
+    }
+  } catch (err) {
+    console.error('Submission error:', err);
+    alert('Failed to submit contact form.');
   }
+};
+
 
   return (
     <div className="contact-container"> {/* main container */}
