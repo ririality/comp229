@@ -8,7 +8,7 @@ import '../styles/main.css';
 
 export default function Projects() {
   const [formData, setFormData] = useState({
-    name: '',
+    title: '',
     summary: '',
     date: ''
   });
@@ -87,7 +87,7 @@ export default function Projects() {
             <label>Project Name</label>
             <input
               type="text"
-              name="name"
+              name="title"
               value={formData.name}
               onChange={handleChange}
               required

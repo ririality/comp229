@@ -47,3 +47,6 @@ export const signIn = async (req, res) => {
   res.json({ token, role: user.role, name: user.name }) // send token, role, name back to frontend
 }
 
+export const signOut = (req, res) => {
+  res.status(200).json({ message: 'Signed out successfully' });
+};
