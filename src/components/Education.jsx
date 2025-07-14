@@ -31,12 +31,12 @@ export default function Education() {
       if (result.error) {
         alert('Error: ' + result.error);
       } else {
-        alert('Education added!');
+        alert('Education/Qualification added!');
         setFormData({ school: '', degree: '', year: '' });
       }
     } catch (err) {
       console.error('Submission error:', err);
-      alert('Failed to submit education info.');
+      alert('Failed to submit education/qualification info.');
     }
   };
 

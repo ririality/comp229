@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import educationRoutes from './routes/educationRoutes.js';
+import projectsRoutes from './routes/projectsRoutes.js';
 import authRoutes from './routes/auth.js';
 import contactsRoutes from './routes/contactsRoutes.js';
 import usersRoutes from './routes/usersRoutes.js';
@@ -23,6 +24,7 @@ app.use('/auth', authRoutes);
 app.use('/api/contacts', requireSignin, contactsRoutes);
 app.use('/api/users', requireSignin, usersRoutes);
 app.use('/api/education', requireSignin, educationRoutes);
+app.use('/api/projects', requireSignin, projectsRoutes);
 
 
 // ✅ Default route

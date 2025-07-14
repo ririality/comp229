@@ -3,8 +3,48 @@ import LoonieSRS from '../assets/LoonieSRS.pdf';
 import forkAndSpoon from '../assets/forkandspoon.png';
 import loonie from '../assets/loonie.png';
 import database from '../assets/database.png';
+import React, { useState } from 'react';
+import '../styles/main.css';
 
-export default function Projects(){
+export default function Projects() {
+  const [formData, setFormData] = useState({
+    name: '',
+    summary: '',
+    date: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const token = JSON.parse(sessionStorage.getItem('jwt'))?.token;
+
+    try {
+      const response = await fetch('http://localhost:3000/api/projects', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (result.error) {
+        alert('Error: ' + result.error);
+      } else {
+        alert('Project added!');
+        setFormData({ name: '', summary: '', date: '' });
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      alert('Failed to submit project.');
+    }
+  };
+
     return (
     <div className="projects-section">
         
@@ -37,6 +77,47 @@ export default function Projects(){
              This involved requirements gathering, developing an ER diagram, creating tables with proper relationships, and populating them with sample data using SQL Developer. 
              The project strengthened my understanding of database design, SQL commands, and systems development life cycle.</p>
         </div>
+      </div>
+      
+      {/* Add Project Form */}
+      <div className="contact-form-box" style={{ marginTop: '3rem' }}>
+        <h2 className="contact-header">Add a New Project</h2>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <div className="form-group">
+            <label>Project Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Summary</label>
+            <input
+              type="text"
+              name="summary"
+              value={formData.summary}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Date</label>
+            <input
+              type="text"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button type="submit" className="btn">Submit</button>
+        </form>
       </div>
     </div>
     )
