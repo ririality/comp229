@@ -2,7 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import authRoutes from './routes/auth.js';
 
-import { requireSignin } from './auth.middleware.js';
+import { requireSignin } from './auth.middleware.js'
+import config from './config.js'
 
 const app = express();
 const PORT = 3000;

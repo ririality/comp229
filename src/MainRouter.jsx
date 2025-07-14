@@ -6,25 +6,23 @@ import About from "./components/About"
 import Contact from "./components/Contact"
 import Services from "./components/Services"
 import Home from "./components/Home"
-import SignUp from './components/SignUp'
-import SignIn from './components/SignIn'
+import SignUp from './components/Home'
+import SignIn from './components/Home'
 
 
-const MainRouter = () => {
-    return (
-        <div>
-            <Layout />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/Services" element={<Services />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/signup" element={<SignUp />} />
-                <Route path="/signin" element={<SignIn />} />
-            </Routes>
-        </div>
-    )
+export default function MainRouter() {
+  return (
+    <>
+      <Layout />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+      </Routes>
+    </>
+  );
 }
-
-export default MainRouter

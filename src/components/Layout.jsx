@@ -20,6 +20,8 @@ export default function Layout() {
           <Link to="/services">Services</Link>
           <Link to="/projects">Projects</Link>
           <Link to="/contact">Contact</Link>
+          <Link to="/signup">Sign Up</Link>
+          <Link to="/signin">Sign In</Link>
         </nav>
       </div>
     </div>
